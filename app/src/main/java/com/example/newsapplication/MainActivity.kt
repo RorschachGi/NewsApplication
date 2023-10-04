@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.newsapplication.databinding.ActivityMainBinding
 
@@ -19,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         Handler(Looper.myLooper()!!).postDelayed({
             setContentView(mBinding.root)
             mBinding.bottomNavMenu.setupWithNavController(
-                navController = findNavController(R.id.bottom_nav_menu)
+                navController = this.findNavController(R.id.nav_host_fragment)
             )
         }, 500)
     }
