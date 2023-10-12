@@ -52,7 +52,16 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
             image.clipToOutline = true
             articleTitle.text = article.title
             articleDate.text = article.publishedAt
+
+            setOnClickListener{
+                onItemClickListener.let {
+                    if (it != null) {
+                        it(article)
+                    }
+                }
+            }
         }
+
     }
 
     fun setOnClickListener(listener: (Article) -> Unit){
